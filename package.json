@@ -1,0 +1,23 @@
+{
+  "name": "mauricio_simon_rodriguez_desafio_04_api_restful",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msrarg/Desafio_04_API_RESTful.git"
+  },
+  "author": "Mauricio Simón Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msrarg/Desafio_04_API_RESTful/issues"
+  },
+  "homepage": "https://github.com/msrarg/Desafio_04_API_RESTful#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "modules": "^0.4.0"
+  }
+}
