@@ -1,5 +1,5 @@
 const fs = require("fs").promises;
-const pathFile = `./src/models/productos.json`;
+const pathFile = `./models/productos.json`;
 const encoding = `utf-8`;
 
 class Contenedor {

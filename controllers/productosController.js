@@ -25,7 +25,7 @@ exports.saveProducto = async (req,res)=>{
 	res.status(201).json({id});
 };
 
-exports.saveProductoId = async (req,res)=>{
+exports.saveProductoHtml = async (req,res)=>{
     let product = req.body;
     let id = await contenedor.save(product)
     res.redirect('/');

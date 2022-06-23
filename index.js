@@ -30,7 +30,7 @@ const express = require ('express');
 const app = express();
 const port = '8080';
 //const path = require('path');
-const rutas = require('./src/routers/productosRoutes.js');
+const rutas = require('./routers/productosRoutes.js');
 
 // const productosPath = '/api/productos';
 // app.use(productosPath, require('../routes/productos'));
@@ -40,9 +40,8 @@ const rutas = require('./src/routers/productosRoutes.js');
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.urlencoded({ extendedparser : true }));
-app.use(express.static('public'));
+app.use(express.static('views'));
 // app.use(express.static(path.join(__dirname,'public')));
-
 
 // GET '/api/productos' -> devuelve todos los productos.
 app.use('/api/productos', rutas.allProducts);
@@ -51,6 +50,8 @@ app.use('/api/productos', rutas.idProduct);
 
 // POST '/api/productos' -> recibe y agrega un producto, y lo devuelve con su id asignado.
 app.use('/api/productos', rutas.newProduct);
+// POST '/api/productos' -> recibe y agrega un producto, y lo devuelve con su id asignado.
+app.use('/api/productos', rutas.newProductHtml);
 
 // PUT '/api/productos/:id' -> recibe y actualiza un producto según su id.
 app.use('/api/productos', rutas.updateProduct);
