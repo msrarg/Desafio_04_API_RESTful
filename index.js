@@ -28,34 +28,38 @@
 
 const express = require ('express');
 const app = express();
-
-//const path = require('path')
+const port = '8080';
+//const path = require('path');
 const rutas = require('./src/routers/productosRoutes.js');
 
-const port = '8080';
+// const productosPath = '/api/productos';
+// app.use(productosPath, require('../routes/productos'));
 
-// Configuración STATIC
+
+// Configuración STATIC - middlewares
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extendedparser : true }));
+app.use(express.static('public'));
 // app.use(express.static(path.join(__dirname,'public')));
 
+
 // GET '/api/productos' -> devuelve todos los productos.
-app.use('/', rutas.allProducts);
+app.use('/api/productos', rutas.allProducts);
 // GET '/api/productos/:id' -> devuelve un producto según su id.
-app.use('/', rutas.idProduct);
+app.use('/api/productos', rutas.idProduct);
 
 // POST '/api/productos' -> recibe y agrega un producto, y lo devuelve con su id asignado.
-app.use('/', rutas.newProduct);
+app.use('/api/productos', rutas.newProduct);
 
 // PUT '/api/productos/:id' -> recibe y actualiza un producto según su id.
-app.use('/', rutas.updateProduct);
+app.use('/api/productos', rutas.updateProduct);
 
 // DELETE '/api/productos/:id' -> elimina un producto según su id.
-app.use('/', rutas.deleteProduct);
+app.use('/api/productos', rutas.deleteProduct);
 
 const serverExpress = app.listen(port, () => {
     console.log(`Server running on port ${serverExpress.address().port}`);
 });
 
 serverExpress.on('error', (error) => {`Error en el servidor: ${error}`});
-
