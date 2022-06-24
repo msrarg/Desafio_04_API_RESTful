@@ -37,7 +37,8 @@ exports.updateProductoId = async (req,res)=>{
         res.send({ error: `El parámetro ${req.params.id} no es un número.`});
     } else {
         let product = await contenedor.getById(id);
-        if(product){
+        if(product !== null){
+            console.log(id, req.body);
             await contenedor.updateById(id, req.body);
             res.status(200).json({mensaje: `Se ha actualizado el producto ${id}`});
         }else{

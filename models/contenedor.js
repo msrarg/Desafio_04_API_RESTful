@@ -93,12 +93,12 @@ class Contenedor {
     try{
         const productos = await this.getAll();
         const index = productos.findIndex(p => p.id === id);
-        if (index > -1) {
+        if (index < 0) {
             throw new Error(`producto no encontrado`);
         }
         product.id = id;
         productos[index] = product;
-        await fs.writeFile(this.filename,JSON.stringify(productos));
+        await fs.writeFile(this.pathFile,JSON.stringify(productos));
       } catch (error) {
         console.log(`Se produjo un error al intentar actualizar el archivo: ${error}`);
       }
