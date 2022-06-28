@@ -96,7 +96,7 @@ class Contenedor {
         if (index < 0) {
             throw new Error(`producto no encontrado`);
         }
-        product.id = id;
+        product.id = id; // ver si lo saco
         productos[index] = product;
         await fs.writeFile(this.pathFile,JSON.stringify(productos));
       } catch (error) {
